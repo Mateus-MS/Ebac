@@ -1,0 +1,38 @@
+Levanto
+Vou pra cozinha
+
+repete 2 vezes
+	repete para cada lado
+		Pego o pão
+		Passo manteiga no lado
+
+Ponho na torradeira
+Vou para o banheiro
+Tomo banho
+Escovo os dentes
+Vou para a cozinha
+
+if dia == dia_puxado
+	
+	Pego a xicara
+	Ponho leite
+	Ponho a xicara no micro-ondas
+	Pego uma colher
+	Espera 40000ms
+	Pego o café
+	Ponho duas colheres de café
+	Pego o açúcar
+	Ponho uma colher de açúcar
+
+else
+
+	Pego um copo
+	Pego suco de laranja
+	Põe suco no copo
+
+Tiro os pães da torradeira
+Vou para a sala
+Sento na cadeira
+Checo os e-mails
+
+Estudo o material do meu curso na EBAC
