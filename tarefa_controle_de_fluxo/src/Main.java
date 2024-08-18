@@ -122,7 +122,7 @@ public class Main {
         private void imprimeSituacao(){
 
             System.out.println();
-            System.out.printf("Situação do aluno: %s%s.", this.testaCituacaoDoAluno(media), this.BRANCO);
+            System.out.printf("Situação do aluno: %s%s.", this.testaSituacaoDoAluno(media), this.BRANCO);
 
         }
 
@@ -153,7 +153,7 @@ public class Main {
          *     <li>  < 5 == REPROVADO em vermelho. </li>
          * </ul>
          */
-        private String testaCituacaoDoAluno(float media){
+        private String testaSituacaoDoAluno(float media){
             if(media >= 7){
                 return this.VERDE + "APROVADO";
             }
