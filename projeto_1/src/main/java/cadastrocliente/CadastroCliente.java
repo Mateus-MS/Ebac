@@ -9,7 +9,7 @@ public class CadastroCliente {
         
         TelaPrincipal mainTela = new TelaPrincipal();
         mainTela.setVisible(true);
-        mainTela.setName("Controle de cadastros");
+        mainTela.setTitle("Controle de clientes");
         mainTela.setLocationRelativeTo(null);
         mainTela.setBackground(Color.decode("#3B3B3B"));
         mainTela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

@@ -5,20 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f814493c-3894-494f-9714-8fc509205c9a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projeto_1.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/cadastrocliente/CadastroCliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cadastrocliente/CadastroCliente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cadastrocliente/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cadastrocliente/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cadastrocliente/ClientMapDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cadastrocliente/ClientMapDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cadastrocliente/IClientDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cadastrocliente/IClientDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cadastrocliente/TelaPrincipal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cadastrocliente/TelaPrincipal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cadastrocliente/Images/circle_fill.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cadastrocliente/Images/circle_stroke.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cadastrocliente/Images/edit.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +30,7 @@
   "keyToString": {
     "Application.CadastroCliente.executor": "Run",
     "Application.TelaPrincipal.executor": "Run",
+    "Application.Unnamed.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
