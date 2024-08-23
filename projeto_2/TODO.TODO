@@ -1,0 +1,3 @@
+Refatorar o Main, quebrar o código em funções e diminuir quantidade de IF aninhados
+
+Construir um Test generico que funcione para todos os objects
