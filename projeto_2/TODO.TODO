@@ -1,3 +1,5 @@
-Refatorar o Main, quebrar o código em funções e diminuir quantidade de IF aninhados
+Refatorar o App para diminuir a quantidade de switch cases
 
-Construir um Test generico que funcione para todos os objects
+Melhorar a usabilidade do usuário colocando opções de sair melhor formatação dos dados e por ai vai
+
+Criar Exceptions melhor para expandir mais a aplicação
