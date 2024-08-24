@@ -1,7 +1,9 @@
 package main.java.product;
 
+import main.java.annotations.Getter;
 import main.java.generics.IGenericEntity;
 
+@Getter("getCodigo")
 public class Product implements IGenericEntity {
 
     private final String  nome;

@@ -1,11 +1,13 @@
 package main.java.client;
 
+import main.java.annotations.Getter;
 import main.java.generics.IGenericEntity;
 
 /**
  *  Objeto cliente que guarda funções
  *  e informações de um unico client
  */
+@Getter("getCpf")
 public class Client implements IGenericEntity {
 
     private final String    nome;

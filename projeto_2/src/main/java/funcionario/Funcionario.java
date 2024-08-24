@@ -1,11 +1,9 @@
 package main.java.funcionario;
 
+import main.java.annotations.Getter;
 import main.java.generics.IGenericEntity;
 
-import java.util.Arrays;
-import java.util.List;
-
-
+@Getter("getRegister")
 public class Funcionario implements IGenericEntity {
 
     private final String nome;
