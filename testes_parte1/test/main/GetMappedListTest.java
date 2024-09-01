@@ -10,7 +10,7 @@ public class GetMappedListTest {
     @Test
     public void createTest(){
 
-        Map<Character, List<Pessoa>> testList = Main.getMappedList("Mateus 20 M, Khelbia 30 F");
+        Map<Character, List<Pessoa>> testList = Main.getMappedList("Mateus Alves - 20 - M, Khelbia - 30 - F");
 
         testList.get('M').stream().forEach(
                 pessoa -> {

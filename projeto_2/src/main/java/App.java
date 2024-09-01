@@ -1,6 +1,7 @@
 package main.java;
 
 import main.java.client.Client;
+import main.java.client.DAO.ClientDAO;
 import main.java.client.DAO.ClientDAOMock;
 import main.java.client.service.ClientService;
 import main.java.exceptions.DataAlreadyInDBException;
@@ -40,7 +41,7 @@ public class App {
 
         switch (service){
             case "1":
-                this.dao = ClientDAOMock.getInstance();
+                this.dao = ClientDAO.getInstance();
                 this.service = new ClientService(this.dao);
                 break;
             case "2":

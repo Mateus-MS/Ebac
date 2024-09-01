@@ -10,9 +10,6 @@ import main.java.product.DAO.ProductDAO;
  * Responsavel por conectar com o banco de dados
  * e realiza toda a logica para os metodos. <br>
  *
- * Nesse caso é apenas uma simulação então todas
- * as funções retornarão <code>false</code>, imitando uma falha
- * na conexão com o banco de dados
  */
 public class ClientDAO implements IGenericDAO<Client> {
 

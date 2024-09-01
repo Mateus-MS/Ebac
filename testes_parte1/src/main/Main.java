@@ -13,8 +13,8 @@ public class Main {
 
         return Arrays.stream(rawInput.split(", "))
                     .map(p -> {
-                        String[] t = p.split(" ");
-                        return new Pessoa(t[0], Integer.parseInt(t[1]), t[2].charAt(0));
+                        String[] t = p.split("-");
+                        return new Pessoa(t[0], Integer.parseInt(t[1].replaceAll(" ", "")), t[2].replaceAll(" ", "").charAt(0));
                     })
                     .collect(Collectors.groupingBy(Pessoa::getSexo));
 

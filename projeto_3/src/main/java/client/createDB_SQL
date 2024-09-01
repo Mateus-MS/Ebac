@@ -1,0 +1,14 @@
+CREATE TABLE clients (
+  name     VARCHAR(50)  NOT NULL,
+  cpf      VARCHAR(11)  NOT NULL,
+  idade    INT          NOT NULL,
+  sexo     VARCHAR(1)   NOT NULL,
+
+  endereco VARCHAR(100),
+
+  CONSTRAINT idade_check CHECK (idade > 0 AND idade < 200),
+  CONSTRAINT sexo_check  CHECK (sexo = 'M' OR sexo = 'F')
+);
+
+-- A falta de um ID piora significativamente a velocidade das querys
+por CPF
