@@ -1,14 +1,14 @@
-package main.java.client;
+package main.java.entities.client;
 
-import java.util.Locale;
+import main.java.entities.z_generics.IGenericEntity;
 
-public class Client {
+public class Client implements IGenericEntity {
 
-    private String    name;
-    private String    cpf;
-    private int       idade;
-    private Character sexo;
-    private String    endereco;
+    private final String    name;
+    private final String    cpf;
+    private final int       idade;
+    private final Character sexo;
+    private final String    endereco;
 
     public Client(String name, String cpf, int idade, Character sexo, String endereco){
         this.name     = name;

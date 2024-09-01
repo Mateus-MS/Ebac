@@ -1,17 +1,19 @@
-package main.java.client;
+package main.java.entities.client;
 
 import main.java.domain.ConnectionSingleton;
+import main.java.entities.z_generics.IGenericDAO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Arrays;
 
 /**
  * Funciona como um Singleton <br>
  * Responsável por toda a lógica relacionada ao Client.
  */
-public class ClientDAO {
+public class ClientDAO implements IGenericDAO<Client> {
 
     //Objeto estático
     private static ClientDAO instance;
@@ -27,6 +29,7 @@ public class ClientDAO {
         return instance;
     }
 
+    @Override
     public boolean register(Client client) {
         Connection connection = null;
         PreparedStatement stm = null;
@@ -43,7 +46,13 @@ public class ClientDAO {
             //Cria o objeto da query
             stm = connection.prepareStatement(sql);
             //Insere os parametros do cliente no lugar das interrogações
-            addParamsRegister(stm, client);
+            addParams(stm, Arrays.asList(
+                client.getName(),
+                client.getCpf(),
+                client.getIdade(),
+                client.getSexo(),
+                client.getEndereco())
+            );
             //Executa a query
             //Quando não a query não retorna nada se usa esse método
             stm.executeUpdate();
@@ -55,14 +64,7 @@ public class ClientDAO {
         return true;
     }
 
-    private void addParamsRegister(PreparedStatement stm, Client client) throws SQLException {
-        stm.setString(1, client.getName());
-        stm.setString(2, client.getCpf());
-        stm.setInt   (3, client.getIdade());
-        stm.setString(4, client.getSexo().toString());
-        stm.setString(5, client.getEndereco());
-    }
-
+    @Override
     public boolean delete(String cpf){
         Connection connection = null;
         PreparedStatement stm = null;
@@ -78,7 +80,7 @@ public class ClientDAO {
             //Valida a query
             stm = connection.prepareStatement(sql);
             //Adiciona o cpf a query
-            addParamsDelete(stm, cpf);
+            addParams(stm, Arrays.asList(cpf));
             //Executa a query
             result = stm.executeUpdate() == 1;
         } catch (SQLException e) {
@@ -89,10 +91,7 @@ public class ClientDAO {
         return result;
     }
 
-    private void addParamsDelete(PreparedStatement stm, String cpf) throws SQLException {
-        stm.setString(1, cpf);
-    }
-
+    @Override
     public Client search(String _cpf){
         Connection connection    = null;
         PreparedStatement stm    = null;
@@ -108,7 +107,7 @@ public class ClientDAO {
             //Valida a query
             stm = connection.prepareStatement(sql);
             //Adiciona o cpf a query
-            addParamsSearch(stm, _cpf);
+            addParams(stm, Arrays.asList(_cpf));
             //Executa a query
             rs = stm.executeQuery();
             //Se encontrar algo
@@ -130,27 +129,9 @@ public class ClientDAO {
         return client;
     }
 
-    private void addParamsSearch(PreparedStatement stm, String cpf) throws SQLException {
-        stm.setString(1, cpf);
-    }
-
-    public static void closeConnection(Connection connection, PreparedStatement stm, ResultSet rs){
-        //TODO TRATAR MELHOR O ERRO!
-        try {
-            if(connection != null && !connection.isClosed()){
-                connection.close();
-            }
-
-            if(stm != null && !stm.isClosed()){
-                stm.close();
-            }
-
-            if(rs != null && !rs.isClosed()){
-                rs.close();
-            }
-        } catch (SQLException e){
-            throw new RuntimeException("TRATAR MELHOR O ERRO!");
-        }
+    @Override
+    public boolean update(Client client){
+        return false;
     }
 
 }

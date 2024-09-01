@@ -1,11 +1,11 @@
 package main.java.services;
 
-import main.java.client.ClientDAO;
-import main.java.client.ClientService;
+import main.java.entities.client.ClientDAO;
+import main.java.entities.client.ClientService;
 import org.junit.Assert;
 import org.junit.Test;
 
-import main.java.client.Client;
+import main.java.entities.client.Client;
 
 public class ClientServiceTest {
 

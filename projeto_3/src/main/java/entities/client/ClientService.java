@@ -1,4 +1,4 @@
-package main.java.client;
+package main.java.entities.client;
 
 public class ClientService {
 

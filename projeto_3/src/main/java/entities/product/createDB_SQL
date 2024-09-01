@@ -1,0 +1,10 @@
+CREATE TABLE products (
+  name      VARCHAR(50)  NOT NULL,
+  price     BIGINT       NOT NULL,
+  available BOOLEAN      DEFAULT FALSE,
+
+  CONSTRAINT price_check CHECK (price > 0)
+);
+
+-- A falta de um ID piora significativamente a velocidade das querys
+por nome
