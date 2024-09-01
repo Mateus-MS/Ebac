@@ -1,9 +1,9 @@
 package main.java.services;
 
-import main.java.entities.client.ClientDAO;
 import main.java.entities.product.Product;
 import main.java.entities.product.ProductDAO;
-import main.java.entities.product.ProductService;
+import main.java.entities.z_generics.GenericService;
+import main.java.entities.z_generics.IGenericDAO;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -17,11 +17,20 @@ public class ProductServiceTest {
             true
         );
 
-        ProductDAO      dao = ProductDAO.getInstance();
-        ProductService service = new ProductService(dao);
+        IGenericDAO<Product> dao = ProductDAO.getInstance();
+        GenericService<Product> service = new GenericService<>(dao);
 
         //Testa o metodo register
         Assert.assertTrue(service.register(product));
+
+        //Testa se o metodo atualiza funciona
+        Product newProduct = new Product(
+            "PS4 - Slim",
+            1900,
+            true
+        );
+        Assert.assertTrue(service.update(newProduct));
+        Assert.assertEquals(service.search(newProduct.getName()).getPrice(), newProduct.getPrice());
 
         //Testa o metodo search
         Assert.assertEquals(product.getName(), service.search(product.getName()).getName());

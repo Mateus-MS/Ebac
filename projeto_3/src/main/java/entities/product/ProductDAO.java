@@ -1,7 +1,6 @@
 package main.java.entities.product;
 
 import main.java.domain.ConnectionSingleton;
-import main.java.entities.client.Client;
 import main.java.entities.z_generics.IGenericDAO;
 
 import java.sql.Connection;
@@ -121,7 +120,34 @@ public class ProductDAO implements IGenericDAO<Product> {
 
     @Override
     public boolean update(Product product){
-        return false;
+        Connection connection    = null;
+        PreparedStatement stm    = null;
+        boolean result = false;
+
+        //Estabelece conexão com banco de dados
+        connection = ConnectionSingleton.getInstance();
+
+        //Query
+        String sql = "UPDATE products " +
+                     "SET name = ?, price = ?, available = ? " +
+                     "WHERE name = ?";
+        try {
+            //Valida a query
+            stm = connection.prepareStatement(sql);
+            addParams(stm, Arrays.asList(
+                    product.getName(),
+                    product.getPrice(),
+                    product.getAvailable(),
+                    product.getName()
+            ));
+            //Executa a query
+            result = stm.executeUpdate() > 0;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            closeConnection(connection, stm, null);
+        }
+        return result;
     }
 
 }

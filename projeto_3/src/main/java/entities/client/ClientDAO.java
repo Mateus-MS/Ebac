@@ -131,7 +131,37 @@ public class ClientDAO implements IGenericDAO<Client> {
 
     @Override
     public boolean update(Client client){
-        return false;
+        Connection connection    = null;
+        PreparedStatement stm    = null;
+        boolean result = false;
+
+        //Estabelece conexão com banco de dados
+        connection = ConnectionSingleton.getInstance();
+
+        //Query
+        String sql = "UPDATE clients " +
+                     "SET name = ?, cpf = ?, idade = ?, sexo = ?, endereco = ? " +
+                     "WHERE cpf = ?";
+        try {
+            //Valida a query
+            stm = connection.prepareStatement(sql);
+            //Adiciona o cpf a query
+            addParams(stm, Arrays.asList(
+                    client.getName(),
+                    client.getCpf(),
+                    client.getIdade(),
+                    client.getSexo(),
+                    client.getEndereco(),
+                    client.getCpf()
+            ));
+            //Executa a query
+            result = stm.executeUpdate() > 0;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            closeConnection(connection, stm, null);
+        }
+        return result;
     }
 
 }
