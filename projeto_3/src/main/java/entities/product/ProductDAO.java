@@ -34,8 +34,8 @@ public class ProductDAO implements IGenericDAO<Product> {
         conn = ConnectionSingleton.getInstance();
 
         //Cria a query a ser executada
-        String sql = "INSERT INTO products (name, price, available) " +
-                     "VALUES (?, ?, ?)";
+        String sql = "INSERT INTO products (name, price, available, ammount)" +
+                     "VALUES (?, ?, ?, ?)";
 
         try {
             stm = conn.prepareStatement(sql);
@@ -43,7 +43,8 @@ public class ProductDAO implements IGenericDAO<Product> {
             addParams(stm, Arrays.asList(
                     product.getName(),
                     product.getPrice(),
-                    product.getAvailable()
+                    product.getAvailable(),
+                    product.getAmmount()
             ));
 
             stm.executeUpdate();
@@ -107,8 +108,9 @@ public class ProductDAO implements IGenericDAO<Product> {
                 String  name      = rs.getString("NAME");
                 int     price     = rs.getInt("PRICE");
                 boolean available = rs.getBoolean("AVAILABLE");
+                int     ammount   = rs.getInt("AMMOUNT");
                 //Cria um objeto com os dados
-                product = new Product(name, price, available);
+                product = new Product(name, price, available, ammount);
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -129,7 +131,7 @@ public class ProductDAO implements IGenericDAO<Product> {
 
         //Query
         String sql = "UPDATE products " +
-                     "SET name = ?, price = ?, available = ? " +
+                     "SET name = ?, price = ?, available = ?, ammount = ?" +
                      "WHERE name = ?";
         try {
             //Valida a query
@@ -138,6 +140,7 @@ public class ProductDAO implements IGenericDAO<Product> {
                     product.getName(),
                     product.getPrice(),
                     product.getAvailable(),
+                    product.getAmmount(),
                     product.getName()
             ));
             //Executa a query

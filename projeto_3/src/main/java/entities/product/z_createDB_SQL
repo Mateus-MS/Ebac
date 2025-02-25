@@ -2,6 +2,7 @@ CREATE TABLE products (
   name      VARCHAR(50)  NOT NULL,
   price     BIGINT       NOT NULL,
   available BOOLEAN      DEFAULT FALSE,
+  ammount   BIGINT       DEFAULT 0, -- New field
 
   CONSTRAINT price_check CHECK (price > 0)
 );

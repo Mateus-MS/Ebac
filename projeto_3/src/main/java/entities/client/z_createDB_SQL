@@ -3,6 +3,7 @@ CREATE TABLE clients (
   cpf      VARCHAR(11)  NOT NULL,
   idade    INT          NOT NULL,
   sexo     VARCHAR(1)   NOT NULL,
+  email    VARCHAR(255) NOT NULL, -- New field
 
   endereco VARCHAR(100),
 

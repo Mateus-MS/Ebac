@@ -9,13 +9,15 @@ public class Client implements IGenericEntity {
     private final int       idade;
     private final Character sexo;
     private final String    endereco;
+    private final String    email;
 
-    public Client(String name, String cpf, int idade, Character sexo, String endereco){
+    public Client(String name, String cpf, int idade, Character sexo, String endereco, String email){
         this.name     = name;
         this.cpf      = cpf;
         this.idade    = idade;
         this.sexo     = sexo;
         this.endereco = endereco;
+        this.email    = email;
     }
 
     public String getName(){
@@ -37,5 +39,7 @@ public class Client implements IGenericEntity {
     public String getEndereco(){
         return this.endereco;
     }
+
+    public String getEmail() { return this.email; }
 
 }

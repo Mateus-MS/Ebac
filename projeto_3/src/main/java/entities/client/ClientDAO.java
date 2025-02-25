@@ -38,8 +38,8 @@ public class ClientDAO implements IGenericDAO<Client> {
         connection = ConnectionSingleton.getInstance();
 
         //Cria a query a ser executada
-        String sql = "INSERT INTO clients (name, cpf, idade, sexo, endereco) " +
-                     "VALUES (?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO clients (name, cpf, idade, sexo, endereco, email) " +
+                     "VALUES (?, ?, ?, ?, ?, ?)";
 
         //TODO TRATAR MELHOR O ERRO!
         try {
@@ -51,7 +51,8 @@ public class ClientDAO implements IGenericDAO<Client> {
                 client.getCpf(),
                 client.getIdade(),
                 client.getSexo(),
-                client.getEndereco())
+                client.getEndereco(),
+                client.getEmail())
             );
             //Executa a query
             //Quando não a query não retorna nada se usa esse método
@@ -118,8 +119,9 @@ public class ClientDAO implements IGenericDAO<Client> {
                 int       idade    = rs.getInt("IDADE");
                 Character sexo     = rs.getString("SEXO").charAt(0);
                 String    endereco = rs.getString("ENDERECO");
+                String    email    = rs.getString("EMAIL");
                 //Cria um objeto com os dados
-                client = new Client(name, cpf, idade, sexo, endereco);
+                client = new Client(name, cpf, idade, sexo, endereco, email);
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -140,7 +142,7 @@ public class ClientDAO implements IGenericDAO<Client> {
 
         //Query
         String sql = "UPDATE clients " +
-                     "SET name = ?, cpf = ?, idade = ?, sexo = ?, endereco = ? " +
+                     "SET name = ?, cpf = ?, idade = ?, sexo = ?, endereco = ?, email = ?" +
                      "WHERE cpf = ?";
         try {
             //Valida a query
@@ -152,6 +154,7 @@ public class ClientDAO implements IGenericDAO<Client> {
                     client.getIdade(),
                     client.getSexo(),
                     client.getEndereco(),
+                    client.getEmail(),
                     client.getCpf()
             ));
             //Executa a query
