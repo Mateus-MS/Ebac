@@ -1,3 +1,4 @@
+```SQL
 create table tb_cliente (
 	id bigint,
 	nome varchar(50) not null,
@@ -8,31 +9,31 @@ create table tb_cliente (
 	cidade varchar(50) not null,
 	estado varchar(50) not null,
 	constraint pk_id_cliente primary key(id),
-    ISACTIVE  BOOLEAN DEFAULT TRUE
+	ISACTIVE  BOOLEAN DEFAULT TRUE
 );
 
 CREATE TABLE tb_produto (
-    id BIGINT,
-    codigo VARCHAR(10) NOT NULL,
-    nome VARCHAR(50) NOT NULL,
-    descricao VARCHAR(100) NOT NULL,
-    valor NUMERIC(10,2) NOT NULL,
+	id BIGINT,
+	codigo VARCHAR(10) NOT NULL,
+	nome VARCHAR(50) NOT NULL,
+	descricao VARCHAR(100) NOT NULL,
+	valor NUMERIC(10,2) NOT NULL,
 
-    avaliacao NUMERIC(2,1) NOT NULL DEFAULT 0.0,
+	avaliacao NUMERIC(2,1) NOT NULL DEFAULT 0.0,
 
-    CONSTRAINT pk_id_produto PRIMARY KEY (id),
-    CONSTRAINT chk_avaliacao_range CHECK (avaliacao >= 0 AND avaliacao <= 5)
+	CONSTRAINT pk_id_produto PRIMARY KEY (id),
+	CONSTRAINT chk_avaliacao_range CHECK (avaliacao >= 0 AND avaliacao <= 5)
 );
 
 create table tb_venda(
-	id bigint,
-	codigo varchar(10) not null,
-	id_cliente_fk bigint not null,
-	valor_total numeric(10,2) not null,
-	data_venda TIMESTAMPTZ not null,
-	status_venda varchar(50) not null,
-	constraint pk_id_venda primary key(id),
-	constraint fk_id_cliente_venda foreign key(id_cliente_fk) references tb_cliente(id)
+	 id bigint,
+	 codigo varchar(10) not null,
+	 id_cliente_fk bigint not null,
+	 valor_total numeric(10,2) not null,
+	 data_venda TIMESTAMPTZ not null,
+	 status_venda varchar(50) not null,
+	 constraint pk_id_venda primary key(id),
+	 constraint fk_id_cliente_venda foreign key(id_cliente_fk) references tb_cliente(id)
 );
 
 create table tb_produto_quantidade(
@@ -47,30 +48,32 @@ create table tb_produto_quantidade(
 );
 
 create sequence sq_cliente
-start 1
+	start 1
 increment 1
 owned by tb_cliente.id;
 
 create sequence sq_produto
-start 1
+	start 1
 increment 1
 owned by tb_produto.id;
 
 create sequence sq_venda
-start 1
+	start 1
 increment 1
 owned by tb_venda.id;
 
 create sequence sq_produto_quantidade
-start 1
+	start 1
 increment 1
 owned by tb_produto_quantidade.id;
 
 ALTER TABLE TB_CLIENTE
-ADD CONSTRAINT UK_CPF_CLIENTE UNIQUE (CPF);
+	ADD CONSTRAINT UK_CPF_CLIENTE UNIQUE (CPF);
 
 ALTER TABLE TB_PRODUTO
-ADD CONSTRAINT UK_CODIGO_PRODUTO UNIQUE (CODIGO);
+	ADD CONSTRAINT UK_CODIGO_PRODUTO UNIQUE (CODIGO);
 
 ALTER TABLE TB_VENDA
-ADD CONSTRAINT UK_CODIGO_VENDA UNIQUE (CODIGO);
+	ADD CONSTRAINT UK_CODIGO_VENDA UNIQUE (CODIGO);
+	
+```
