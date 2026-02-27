@@ -24,7 +24,6 @@ public class ClienteFactory {
 		cliente.setNumero(rs.getInt(("NUMERO")));
 		cliente.setCidade(rs.getString(("CIDADE")));
 		cliente.setEstado(rs.getString(("ESTADO")));
-		cliente.setIsActive(rs.getBoolean(("ISACTIVE")));
 		return cliente;
 	}
 }

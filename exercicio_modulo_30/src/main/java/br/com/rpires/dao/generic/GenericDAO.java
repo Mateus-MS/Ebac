@@ -217,6 +217,9 @@ public abstract class GenericDAO<T extends Persistente, E extends Serializable> 
 		} else if(classField.equals(Boolean.class)) {
 			Boolean val = rs.getBoolean(fieldName);
 			method.invoke(entity, val);
+		} else if(classField.equals(Float.class)) {
+			Float val = rs.getFloat(fieldName);
+			method.invoke(entity, val);
 		} else {
 			throw new TipoElementoNaoConhecidoException("TIPO DE CLASSE NÃO CONHECIDO: " + classField);
 		}
@@ -238,6 +241,8 @@ public abstract class GenericDAO<T extends Persistente, E extends Serializable> 
 			return rs.getString(fieldName);
 		} else if(typeField.equals(Boolean.class)) {
 			return rs.getBoolean(fieldName);
+		} else if(typeField.equals(Float.class)) {
+			return rs.getFloat(fieldName);
 		} else {
 			throw new TipoElementoNaoConhecidoException("TIPO DE CLASSE NÃO CONHECIDO: " + typeField);
 		}

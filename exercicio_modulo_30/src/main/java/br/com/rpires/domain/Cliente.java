@@ -94,8 +94,4 @@ public class Cliente implements Persistente {
 
 	public Boolean getIsActive(){return this.isActive;}
 	public void setIsActive(Boolean active){this.isActive = active;}
-	
-
-	
-
 }

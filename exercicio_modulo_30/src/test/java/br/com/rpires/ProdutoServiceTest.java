@@ -39,6 +39,7 @@ public class ProdutoServiceTest {
 		produto.setDescricao("Produto 1");
 		produto.setNome("Produto 1");
 		produto.setValor(BigDecimal.TEN);
+		produto.setAvaliacao(4.5F);
 	}
 	
 	@Test
