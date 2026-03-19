@@ -32,6 +32,15 @@ public class Product {
     public void setStock(Integer stock){this.stock = stock;}
     public Integer getStock(){return this.stock;}
 
+    @ManyToOne
+    @JoinColumn(
+            name = "client_id",
+            foreignKey = @ForeignKey(name = "fk_client_product"),
+            referencedColumnName = "id",
+            nullable = false
+    )
+    private Client client;
+
     public Product(){}
 
     public Product(String title, Float price, Integer stock){

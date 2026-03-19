@@ -1,0 +1,3 @@
+com\teuz\domain\acessorio\model\Acessorio.class
+com\teuz\domain\marca\model\Marca.class
+com\teuz\domain\carro\model\Carro.class

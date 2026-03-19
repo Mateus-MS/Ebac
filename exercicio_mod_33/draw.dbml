@@ -1,0 +1,37 @@
+Enum carro_modelo{
+    SUV
+    HATCHBACK
+    SEDAN
+    PICAPE
+}
+
+Table tb_carro {
+    id uuid [pk]
+
+    modelo carro_modelo [not null]
+    marca_id uuid [ref: > tb_marca.id]
+    
+    ano integer [not null]
+}
+
+Table tb_marca {
+    id uuid [pk]
+
+    accessorios uuid [ref: > tb_acessorio.id]
+    name varchar(20)
+}
+
+Table tb_acessorio {
+    id uuid [pk]
+
+    name varchar(20)
+}
+
+Table tb_carro_acessorio {
+    carro_id uuid [ref: > tb_carro.id]
+    accessorio_id uuid [ref: > tb_acessorio.id]
+
+    Indexes {
+        (carro_id, accessorio_id) [pk]
+    }
+}
